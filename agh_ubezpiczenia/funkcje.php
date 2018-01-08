@@ -11,9 +11,9 @@
 					<td width="50" align="center" bgcolor="e5e5e5"><b>pesel</b></td>
 					<td width="50" align="center" bgcolor="e5e5e5"><b>seria_dowodu</b></td>
 					<td width="50" align="center" bgcolor="e5e5e5"><b>numer_telefonu</b></td>
-					<td width="50" align="center" bgcolor="e5e5e5"><b>email</b></td>
-					<td width="50" align="center" bgcolor="e5e5e5"><b>adres_zamieszkania</b></td>
 					<td width="50" align="center" bgcolor="e5e5e5"><b>kod_pocztowy</b></td>
+					<td width="50" align="center" bgcolor="e5e5e5"><b>adres_zamieszkania</b></td>
+					<td width="50" align="center" bgcolor="e5e5e5"><b>email</b></td>
 					</tr><tr>';
 				}
 				
