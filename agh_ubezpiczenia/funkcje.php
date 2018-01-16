@@ -9,10 +9,10 @@
 					<td width="50" align="center" bgcolor="e5e5e5"><b>imie</b></td>
 					<td width="50" align="center" bgcolor="e5e5e5"><b>nazwisko</b></td>
 					<td width="50" align="center" bgcolor="e5e5e5"><b>pesel</b></td>
-					<td width="50" align="center" bgcolor="e5e5e5"><b>seria_dowodu</b></td>
 					<td width="50" align="center" bgcolor="e5e5e5"><b>numer_telefonu</b></td>
-					<td width="50" align="center" bgcolor="e5e5e5"><b>kod_pocztowy</b></td>
 					<td width="50" align="center" bgcolor="e5e5e5"><b>adres_zamieszkania</b></td>
+					<td width="50" align="center" bgcolor="e5e5e5"><b>kod_pocztowy</b></td>
+					<td width="50" align="center" bgcolor="e5e5e5"><b>seria_dowodu</b></td>
 					<td width="50" align="center" bgcolor="e5e5e5"><b>email</b></td>
 					</tr><tr>';
 				}
@@ -84,5 +84,21 @@
 				mysqli_close($polaczenie);
 				header("Location: usuwanie_klienta.php");
 			}
+//***********************************************************************************************************************************************************			
+			function Usuwanie_pracownikow($polaczenie,$typ1)
+			{
 
+				if($polaczenie === false)
+					die("BŁĄD: Nie można połączyć " . mysqli_connect_error());
+				
+				$zapytanie = "DELETE FROM pracownicy WHERE ID ='$typ1'";
+				
+				if(mysqli_query($polaczenie, $zapytanie))
+					echo '<font color="#15dc00">'."Usunieto wpis.".'</font>'.'<br><br>';
+				else
+					echo "BŁĄD: Nie można wykonać polecenia $zapytanie. " . mysqli_error($polaczenie);
+
+				mysqli_close($polaczenie);
+				header("Location: usuwanie_pracownika.php");
+			}
 ?>
