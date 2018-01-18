@@ -6,8 +6,9 @@
 <body>
 	<?php
 			include "funkcje.php";
-				$polaczenie = Polacz();
-				$rezultat = Pobierz_pracownikow($polaczenie);
+				$pracownik = new Pracownik;
+				$polaczenie = $pracownik->Polacz();
+				$rezultat = $pracownik->Pobierz_pracownikow($polaczenie);
 				$ile = mysqli_num_rows($rezultat);
 				echo "znaleziono:".$ile;
 				echo " ";
