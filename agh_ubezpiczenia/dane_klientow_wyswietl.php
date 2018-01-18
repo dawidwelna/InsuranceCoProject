@@ -20,9 +20,10 @@
 				header("Location: index.html");
 			}
 			include "funkcje.php";
-				$polaczenie = Polacz();
-				$rezultat = Pobierz_klientow($polaczenie);
-				Wyswitl($rezultat);
+				$klient = new Klient;
+				$polaczenie = $klient->Polacz();
+				$rezultat = $klient->Pobierz_klientow($polaczenie);
+				$klient->Wyswitl($rezultat);
 
 			?>
 		</tr>

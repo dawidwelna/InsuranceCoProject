@@ -6,7 +6,8 @@
 <body>
 	<?php
 		require_once "funkcje.php";
-		$polaczenie = Polacz();
+		$klient = new Klient;
+		$polaczenie = $klient->Polacz();
 		if ( isset( $_POST['usun'] ) )
 		{
 			$data_missing = array();
@@ -17,7 +18,7 @@
 				
 			if ( empty( $data_missing ) )
 			{
-				Usuwanie_klientow($polaczenie,$typ1);
+				$klient->Usuwanie_klientow($polaczenie,$typ1);
 			}
 			else
 			{
@@ -56,8 +57,8 @@
 		<table width="500" align="center" border="1" bordercolor="#d5d5d5"  cellpadding="0" cellspacing="0">
         <tr>
 			<?php
-					$rezultat = Pobierz_klientow($polaczenie);
-					Wyswitl($rezultat);
+					$rezultat = $klient->Pobierz_klientow($polaczenie);
+					$klient->Wyswitl($rezultat);
 			?>
 		</tr>
 	</table>
