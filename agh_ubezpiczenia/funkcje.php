@@ -213,6 +213,31 @@
 				mysqli_close($polaczenie);
 				header("Location: usuwanie_pracownika.php");
 			}
+			
+//***********************************************************************************************************************************************************
+			public function Pobierz_klientow($polaczenie)
+			{
+				$zapytanie = "SELECT klienci.ID, klienci.imie, klienci.nazwisko, klienci.pesel,klienci.numer_telefonu, klienci.adres_zamieszkania, klienci.kod_pocztowy, klienci.seria_dowodu, klienci.email FROM klienci";	
+				$rezultat = mysqli_query($polaczenie, $zapytanie);
+				return $rezultat;
+			}
+//***********************************************************************************************************************************************************			
+			public function Usuwanie_klientow($polaczenie,$typ1)
+			{
+
+				if($polaczenie === false)
+					die("BŁĄD: Nie można połączyć " . mysqli_connect_error());
+				
+				$zapytanie = "DELETE FROM klienci WHERE ID ='$typ1'";
+				
+				if(mysqli_query($polaczenie, $zapytanie))
+					echo '<font color="#15dc00">'."Usunieto wpis.".'</font>'.'<br><br>';
+				else
+					echo "BŁĄD: Nie można wykonać polecenia $zapytanie. " . mysqli_error($polaczenie);
+
+				mysqli_close($polaczenie);
+				header("Location: usuwanie_klienta.php");
+			}
 			} 
 
 
