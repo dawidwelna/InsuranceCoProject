@@ -18,7 +18,8 @@
 			if ( empty( $data_missing ) )
 			{
 				include "funkcje.php";
-				$polaczenie = Polacz();
+				$pracownik = new Pracownik;
+				$polaczenie = $pracownik->Polacz();
 				
 				if($polaczenie === false)
 					die("BŁĄD: Nie można połączyć " . mysqli_connect_error());
@@ -75,7 +76,8 @@
 				else $typ9 = trim( $_POST['typ9'] );
 				
 				include "funkcje.php";
-				$polaczenie = Polacz();
+				$pracownik = new Pracownik;
+				$polaczenie = $pracownik->Polacz();
 				$zapytanie = "UPDATE pracownicy SET imie='$typ9',nazwisko='$typ2',pesel='$typ3',numer_telefonu='$typ4',adres_zamieszkania='$typ5',kod_pocztowy='$typ6',seria_dowodu='$typ7',email='$typ8' WHERE ID='$typ1'";	
 				mysqli_query($polaczenie, $zapytanie);
 			header("Location: dane_pracownikow_wyswietl.php");

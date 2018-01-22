@@ -8,7 +8,8 @@
 	error_reporting(E_ALL ^ E_NOTICE);
 		
 				include "funkcje.php";
-				$polaczenie = Polacz();
+				$pracownik = new Pracownik;
+				$polaczenie = $pracownik->Polacz();
 				$zapytanie = "UPDATE pracownicy SET nazwisko='Przetestowane' WHERE imie='Test'";	
 				mysqli_query($polaczenie, $zapytanie);
 				

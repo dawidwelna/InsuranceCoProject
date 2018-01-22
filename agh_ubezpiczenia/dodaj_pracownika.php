@@ -5,6 +5,7 @@
 </head>
 <body>
 	<?php
+	include "funkcje.php";
 		if ( isset( $_POST['dodaj'] ) )
 		{
 			$data_missing = array();
@@ -26,7 +27,8 @@
 				else $typ7 = trim( $_POST['typ7'] );
 			if( empty( $_POST['typ8'] ) ) $data_missing[] = 'typ8';
 				else $typ8 = trim( $_POST['typ8'] );
-				
+			$pracownik = new Pracownik;
+			$pracownik->pobierz($typ1, $typ2, $typ3, $typ4, $typ5, $typ6, $typ7, $typ8);
 			if ( empty( $data_missing ) )
 			{
 				require_once "dbconnect.php";
@@ -38,7 +40,7 @@
 					die("BŁĄD: Nie można połączyć " . mysqli_connect_error());
 
 				$zapytanie = "INSERT INTO pracownicy (ID, imie, nazwisko, pesel, numer_telefonu, adres_zamieszkania, kod_pocztowy, seria_dowodu, email)
-													VALUES (NULL, '$typ1', '$typ2', '$typ3', '$typ4', '$typ5', '$typ6', '$typ7', '$typ8')";
+													VALUES (NULL, '$pracownik->imie', '$pracownik->nazwisko', '$pracownik->pesel', '$pracownik->numer_telefonu', '$pracownik->adres_zamieszkania', '$pracownik->kod_pocztowy', '$pracownik->seria_dowodu', '$pracownik->email')";
 				
 				if(mysqli_query($polaczenie, $zapytanie))
 					echo '<font color="#15dc00">'."Poprawnie dodano wpis.".'</font>'.'<br><br>';

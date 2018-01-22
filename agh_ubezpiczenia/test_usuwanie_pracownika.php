@@ -6,7 +6,8 @@
 <body>
 	<?php
 			include "funkcje.php";
-			$polaczenie = Polacz();
+				$pracownik = new Pracownik;
+				$polaczenie = $pracownik->Polacz();
 				if($polaczenie === false)
 					die("BŁĄD: Nie można połączyć " . mysqli_connect_error());
 				

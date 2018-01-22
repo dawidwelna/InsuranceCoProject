@@ -6,7 +6,8 @@
 <body>
 	<?php
 		require_once "funkcje.php";
-		$polaczenie = Polacz();
+		$pracownik = new Pracownik;
+		$polaczenie = $pracownik->Polacz();
 		if ( isset( $_POST['usun'] ) )
 		{
 			$data_missing = array();
@@ -17,7 +18,7 @@
 				
 			if ( empty( $data_missing ) )
 			{
-				Usuwanie_pracownikow($polaczenie,$typ1);
+				$pracownik->Usuwanie_pracownikow($polaczenie,$typ1);
 			}
 			else
 			{
@@ -39,7 +40,7 @@
 	<table>
 		<b>Usuwanie:</b><br>
 		<tr>
-			<p><td>Podzaj ID klienta do usuniecia :</td> 
+			<p><td>Podzaj ID pracownika do usuniecia :</td> 
 				<td> <input type="int" name="typ1" size="30" value="" /></td>  
 			</p>
 		</tr>
@@ -56,8 +57,8 @@
 		<table width="500" align="center" border="1" bordercolor="#d5d5d5"  cellpadding="0" cellspacing="0">
         <tr>
 			<?php
-					$rezultat = Pobierz_pracownikow($polaczenie);
-					Wyswitl($rezultat);
+					$rezultat = $pracownik->Pobierz_pracownikow($polaczenie);
+					$pracownik->Wyswitl($rezultat);
 			?>
 		</tr>
 	</table>

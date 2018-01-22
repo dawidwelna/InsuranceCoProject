@@ -20,9 +20,10 @@
 				header("Location: index.html");
 			}
 			include "funkcje.php";
-				$polaczenie = Polacz();
-				$rezultat = Pobierz_pracownikow($polaczenie);
-				Wyswitl($rezultat);
+				$pracownik = new Pracownik;
+				$polaczenie = $pracownik->Polacz();
+				$rezultat = $pracownik->Pobierz_pracownikow($polaczenie);
+				$pracownik->Wyswitl($rezultat);
 			?>
 		</tr>
 	</table>
